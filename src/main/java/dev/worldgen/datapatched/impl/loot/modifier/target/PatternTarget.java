@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public record PatternTarget(Pattern pattern) implements Predicate<Identifier> {
-    public static final Codec<PatternTarget> CODEC = ExtraCodecs.PATTERN
+    public static final Codec<PatternTarget> CODEC = ExtraCodecs.PATTERN.fieldOf("regex").codec()
         .xmap(PatternTarget::new, PatternTarget::pattern);
 
     @Override

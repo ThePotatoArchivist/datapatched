@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
-public final class ModifierTarget {
-    private ModifierTarget() {}
+public final class ModifierTargets {
+    private ModifierTargets() {}
 
     public static Predicate<Identifier> direct(Identifier id) {
         return direct(List.of(id));

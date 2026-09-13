@@ -13,6 +13,6 @@ public record PatternTarget(Pattern pattern) implements Predicate<Identifier> {
 
     @Override
     public boolean test(Identifier identifier) {
-        return pattern.asPredicate().test(identifier.toShortString());
+        return pattern.asPredicate().test(identifier.toString());
     }
 }

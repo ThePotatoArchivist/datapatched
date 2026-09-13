@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 
 public record DirectTarget(List<Identifier> ids) implements Predicate<Identifier> {
     public static final Codec<DirectTarget> CODEC = ExtraCodecs.compactListCodec(Identifier.CODEC)
-            .xmap(DirectTarget::new, DirectTarget::ids);
+        .xmap(DirectTarget::new, DirectTarget::ids);
 
     @Override
     public boolean test(Identifier identifier) {

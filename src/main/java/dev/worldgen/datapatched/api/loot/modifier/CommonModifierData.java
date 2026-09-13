@@ -17,12 +17,12 @@ public record CommonModifierData(Predicate<Identifier> target, int priority) {
     @Deprecated
     private static final Identifier UNKNOWN_ID = Datapatched.id("unknown");
     private static final Codec<Predicate<Identifier>> TARGET_CODEC = Codec.either(PatternTarget.CODEC, DirectTarget.CODEC).flatComapMap(
-            Either::unwrap,
-            predicate -> switch (predicate) {
-                case PatternTarget patternTarget -> DataResult.success(Either.left(patternTarget));
-                case DirectTarget directTarget -> DataResult.success(Either.right(directTarget));
-                default -> DataResult.error(() -> "Can only serialize DirectTarget or PatternTarget, got " + predicate);
-            }
+        Either::unwrap,
+        predicate -> switch (predicate) {
+            case PatternTarget patternTarget -> DataResult.success(Either.left(patternTarget));
+            case DirectTarget directTarget -> DataResult.success(Either.right(directTarget));
+            default -> DataResult.error(() -> "Can only serialize DirectTarget or PatternTarget, got " + predicate);
+        }
     );
 
     public static MapCodec<CommonModifierData> codec(int defaultPriority) {

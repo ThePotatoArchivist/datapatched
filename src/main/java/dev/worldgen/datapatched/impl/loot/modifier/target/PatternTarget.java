@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public record PatternTarget(Pattern pattern) implements Predicate<Identifier> {
     public static final Codec<PatternTarget> CODEC = ExtraCodecs.PATTERN
-            .xmap(PatternTarget::new, PatternTarget::pattern);
+        .xmap(PatternTarget::new, PatternTarget::pattern);
 
     @Override
     public boolean test(Identifier identifier) {
